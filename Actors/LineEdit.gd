@@ -18,5 +18,10 @@ func _input(event):
 			grab_focus()
 			set_cursor_position(len(text))
 
+
 func sanity() -> void:
 		GlobalData.score -= click_score
+
+
+func _on_LineEdit_text_entered(new_text):
+	print(text)

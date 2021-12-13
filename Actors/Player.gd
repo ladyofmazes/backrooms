@@ -4,12 +4,12 @@ export var move_score: = 1.0
 export var move_insanity = 500
 export(int) var speed = 80.0
 export var start_position = Vector2.ZERO
-export var insanity_distance = 300
 
 func _ready() -> void:
 		GlobalData.connect("died", self, "die")
 
 func _physics_process(delta):
+	var insanity_distance = GlobalData.insanity_distance
 	var velocity = Vector2.ZERO
 	if start_position == Vector2.ZERO:
 		var start_position = position

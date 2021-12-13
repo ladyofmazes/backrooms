@@ -7,6 +7,7 @@ signal updated
 var score: = 100 setget set_score
 var deaths: = 0 setget set_deaths
 var terror: = 0 setget set_terror
+var insanity_distance: = 300 setget set_insanity_distance
 
 func reset():
 		self.score = 100
@@ -16,7 +17,10 @@ func reset():
 func set_score(new_score: int) -> void:
 		score = new_score
 		emit_signal("updated")
-		
+
+func set_insanity_distance(new_insanity_distance: int) -> void:
+		insanity_distance = new_insanity_distance
+	
 func set_deaths(new_value: int) -> void:
 		deaths = new_value
 		emit_signal("died")
