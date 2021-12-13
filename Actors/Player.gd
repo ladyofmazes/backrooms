@@ -40,4 +40,3 @@ func insanity() -> void:
 			
 func die() -> void:
 		print('Dead')
-		queue_free()

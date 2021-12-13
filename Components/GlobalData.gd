@@ -9,7 +9,7 @@ var deaths: = 0 setget set_deaths
 var terror: = 0 setget set_terror
 
 func reset():
-		self.score = 0
+		self.score = 100
 		print("Reset")
 		emit_signal("reset")
 		
