@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/Sketch28013956.jpg" type="Texture" id=1]
 [ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Actors/Computer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Components/MasterInterface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Actors/Terror.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 51, 0 )
@@ -26,11 +27,31 @@ __meta__ = {
 process_priority = 6
 
 [node name="MasterInterface" parent="InterfaceLayer" instance=ExtResource( 4 )]
+margin_top = 2.0
+margin_bottom = 2.0
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 48, 292 )
+position = Vector2( 47, 289 )
 
 [node name="Computer" parent="." instance=ExtResource( 3 )]
 pause_mode = 2
 position = Vector2( -102, 302 )
 input_pickable = true
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 67, 326 )
+
+[node name="KinematicBody2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 94, 284 )
+
+[node name="KinematicBody2D3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 21, 246 )
+
+[node name="KinematicBody2D4" parent="." instance=ExtResource( 5 )]
+position = Vector2( -6, 283 )
+
+[node name="KinematicBody2D5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 15, 325 )
+
+[node name="KinematicBody2D6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 72, 245 )
