@@ -24,4 +24,4 @@ func sanity() -> void:
 
 
 func _on_LineEdit_text_entered(new_text):
-	print(text)
+	GlobalData.computer_input = text
