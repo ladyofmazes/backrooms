@@ -9,6 +9,7 @@ func _ready():
 	GlobalData.json_path = 'res://assets/level01.json'
 	GlobalData.command_list = []
 	GlobalData.connect("commands", self, "parse_commands")
+	GlobalData.connect("win", self, "win_screen")
 	print('Level 1')
 
 
@@ -38,3 +39,6 @@ func option1() -> void:
 
 func option2() -> void:
 	$Terror1.position += Vector2(100, 0)
+
+func win_screen() -> void:
+	$InterfaceLayer/Win.visible = true

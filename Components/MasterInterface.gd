@@ -21,7 +21,7 @@ func _input(event):
 
 func update_interface() -> void:
 	score_label.text = "Score: %s" % GlobalData.score
-
+	
 func load_json() -> void:
 		var json_path = GlobalData.json_path
 		var data = {}
