@@ -7,6 +7,7 @@ var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalData.json_path = 'res://assets/level01.json'
+	GlobalData.terror_threshold = 2500
 	GlobalData.command_list = []
 	GlobalData.connect("commands", self, "parse_commands")
 	GlobalData.connect("win", self, "win_screen")
@@ -20,11 +21,13 @@ func parse_commands() -> void:
 
 func playagame() -> void:
 	rng.randomize()
-	var level1_number = rng.randi_range(1, 4)
+	var level1_number = rng.randi_range(1, 6)
 	if level1_number == 1:
 		option1()
 	elif level1_number == 2:
 		option2()
+	elif level1_number == 3:
+		option3()
 	else:
 		print('Chaos chaos')
 
@@ -39,6 +42,9 @@ func option1() -> void:
 
 func option2() -> void:
 	$Terror1.position += Vector2(100, 0)
+	
+func option3() -> void:
+	$Portal.visible = true
 
 func win_screen() -> void:
 	$InterfaceLayer/Win.visible = true

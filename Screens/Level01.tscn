@@ -87,4 +87,5 @@ position = Vector2( 15, 325 )
 position = Vector2( 72, 245 )
 
 [node name="Portal" parent="." instance=ExtResource( 7 )]
+visible = false
 position = Vector2( 979, 360 )
