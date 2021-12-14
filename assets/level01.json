@@ -1,0 +1,10 @@
+{"ls": "bin home usr escape.txt", 
+"reboot": "", 
+"vi": "VIM - Vi IMproved version 8.0.1453 by Bram Moolenaar et al.", 
+"cat escape.txt": "Enter the portal to escape", 
+"vi escape.txt": "Enter the portal to escape", 
+"ls bin": "playagame", 
+"ls usr": "bin", 
+"ls usr/bin": "playagame", 
+"/usr/playagame": "", 
+"/usr/bin/playagame": ""}
