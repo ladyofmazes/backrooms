@@ -40,20 +40,20 @@ pause_mode = 2
 position = Vector2( -102, 302 )
 input_pickable = true
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 5 )]
+[node name="Terror" parent="." instance=ExtResource( 5 )]
 position = Vector2( 67, 326 )
 
-[node name="KinematicBody2D2" parent="." instance=ExtResource( 5 )]
+[node name="Terror1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 94, 284 )
 
-[node name="KinematicBody2D3" parent="." instance=ExtResource( 5 )]
+[node name="Terror2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 21, 246 )
 
-[node name="KinematicBody2D4" parent="." instance=ExtResource( 5 )]
+[node name="Terror3" parent="." instance=ExtResource( 5 )]
 position = Vector2( -6, 283 )
 
-[node name="KinematicBody2D5" parent="." instance=ExtResource( 5 )]
+[node name="Terror4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 15, 325 )
 
-[node name="KinematicBody2D6" parent="." instance=ExtResource( 5 )]
+[node name="Terror5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 72, 245 )

@@ -16,4 +16,9 @@ func _ready():
 
 func parse_commands() -> void:
 	for command in GlobalData.command_list:
-		print(command)
+		if 'playagame' in command:
+			playagame()
+
+func playagame() -> void:
+	print('Play a Game')
+	$Player.visible = false

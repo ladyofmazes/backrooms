@@ -43,7 +43,7 @@ func show_computer_dialogue() -> void:
 		if current_json[GlobalData.computer_input] != "":
 			dialogue.text = "%s" % current_json[GlobalData.computer_input]
 		else:
-			GlobalData.command_list.append(GlobalData.computer_input)
+			GlobalData.command_list = [GlobalData.computer_input]
 	else:
 		dialogue.text = "Invalid command"
 

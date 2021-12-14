@@ -2,6 +2,7 @@ extends Node2D
 
 signal died
 signal reset
+signal reboot
 signal updated
 signal text_input
 signal json_data
@@ -10,15 +11,21 @@ signal commands
 var score: = 100 setget set_score
 var deaths: = 0 setget set_deaths
 var terror: = 0 setget set_terror
+var insanity_distance: = 300 setget set_insanity_distance
+
 var computer_input: = '' setget set_computer_input
 var json_path: = '' setget set_json_path
 var command_list: = [] setget set_command_list
-var insanity_distance: = 300 setget set_insanity_distance
 
 func reset():
 		self.score = 100
-		print("Reset")
 		emit_signal("reset")
+
+func reboot():
+		self.deaths = 0
+		self.terror = 0
+		self.insanity_distance = 300
+		emit_signal("reboot")
 		
 func set_score(new_score: int) -> void:
 		score = new_score
@@ -34,6 +41,8 @@ func set_json_path(new_json_path: String) -> void:
 
 func set_command_list(new_command_list: Array) -> void:
 		command_list = new_command_list
+		if 'reboot' in command_list:
+			reboot()
 		emit_signal("commands")
 		
 func set_insanity_distance(new_insanity_distance: int) -> void:

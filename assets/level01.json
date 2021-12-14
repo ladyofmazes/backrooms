@@ -6,5 +6,5 @@
 "ls bin": "playagame", 
 "ls usr": "bin", 
 "ls usr/bin": "playagame", 
-"/usr/playagame": "", 
+"/bin/playagame": "", 
 "/usr/bin/playagame": ""}
