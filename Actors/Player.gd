@@ -1,12 +1,12 @@
-extends KinematicBody2D
+extends CharacterBody2D
 
-export var move_score: = 1.0
-export var move_insanity = 500
-export(int) var speed = 80.0
-export var start_position = Vector2.ZERO
+@export var move_score: = 1.0
+@export var move_insanity = 500
+@export var speed: int = 80.0
+@export var start_position = Vector2.ZERO
 
 func _ready() -> void:
-		GlobalData.connect("died", self, "die")
+		GlobalData.connect("died", Callable(self, "die"))
 
 func _physics_process(delta):
 	var insanity_distance = GlobalData.insanity_distance
@@ -30,7 +30,8 @@ func _physics_process(delta):
 		if abs((position - start_position).length()) > insanity_distance:
 			insanity()
 		
-	move_and_slide(velocity * speed)
+	set_velocity(velocity * speed)
+	move_and_slide()
 	if(GlobalData.score>500):
 		visible = true
 	

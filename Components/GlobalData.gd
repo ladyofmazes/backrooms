@@ -9,22 +9,22 @@ signal text_input
 signal json_data
 signal commands
 
-var score: = 100 setget set_score
-var wins: = 0 setget set_wins
-var deaths: = 0 setget set_deaths
-var terror: = 0 setget set_terror
-var insanity_distance: = 300 setget set_insanity_distance
-var terror_threshold: = 100 setget set_terror_threshold
+var score: = 100: set = set_score
+var wins: = 0: set = set_wins
+var deaths: = 0: set = set_deaths
+var terror: = 0: set = set_terror
+var insanity_distance: = 300: set = set_insanity_distance
+var terror_threshold: = 100: set = set_terror_threshold
 
-var computer_input: = '' setget set_computer_input
-var json_path: = '' setget set_json_path
-var command_list: = [] setget set_command_list
+var computer_input: = '': set = set_computer_input
+var json_path: = '': set = set_json_path
+var command_list: = []: set = set_command_list
 
-func reset():
+func death_reset():
 		self.score = 100
 		emit_signal("reset")
 
-func reboot():
+func death_reboot():
 		self.deaths = 0
 		self.terror = 0
 		self.insanity_distance = 300
@@ -50,7 +50,7 @@ func set_json_path(new_json_path: String) -> void:
 func set_command_list(new_command_list: Array) -> void:
 		command_list = new_command_list
 		if 'reboot' in command_list:
-			reboot()
+			death_reboot()
 		emit_signal("commands")
 		
 func set_insanity_distance(new_insanity_distance: int) -> void:
@@ -61,7 +61,7 @@ func set_terror_threshold(new_terror_threshold: int) -> void:
 	
 func set_deaths(new_value: int) -> void:
 		deaths = new_value
-		reset()
+		death_reset()
 		emit_signal("died")
 		
 func set_terror(new_terror: int) -> void:

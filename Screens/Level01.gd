@@ -9,8 +9,8 @@ func _ready():
 	GlobalData.json_path = 'res://assets/level01.json'
 	GlobalData.terror_threshold = 2500
 	GlobalData.command_list = []
-	GlobalData.connect("commands", self, "parse_commands")
-	GlobalData.connect("win", self, "win_screen")
+	GlobalData.connect("commands", Callable(self, "parse_commands"))
+	GlobalData.connect("win", Callable(self, "win_screen"))
 	print('Level 1')
 
 

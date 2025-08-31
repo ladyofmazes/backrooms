@@ -1,21 +1,21 @@
 extends Control
 
-onready var score_label: Label = $Score
-onready var death_screen: ColorRect = $DeathScreen
-onready var death_label: Label = $DeathScreen/DeathLabel
-onready var dialogue_box: ColorRect = $DialogueBox
-onready var dialogue: Label = $DialogueBox/Dialogue
+@onready var score_label: Label = $Score
+@onready var death_screen: ColorRect = $DeathScreen
+@onready var death_label: Label = $DeathScreen/DeathLabel
+@onready var dialogue_box: ColorRect = $DialogueBox
+@onready var dialogue: Label = $DialogueBox/Dialogue
 var current_json: Dictionary = {}
 
 func _ready() -> void:
-		GlobalData.connect("updated", self, "update_interface")
-		GlobalData.connect("text_input", self, "show_computer_dialogue")
-		GlobalData.connect("json_data", self, "load_json")
-		GlobalData.connect("died", self, "_on_Player_died")
+		GlobalData.connect("updated", Callable(self, "update_interface"))
+		GlobalData.connect("text_input", Callable(self, "show_computer_dialogue"))
+		GlobalData.connect("json_data", Callable(self, "load_json"))
+		GlobalData.connect("died", Callable(self, "_on_Player_died"))
 		update_interface()
 
 func _input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		death_screen.visible = false
 		dialogue_box.visible = false
 
@@ -25,15 +25,16 @@ func update_interface() -> void:
 func load_json() -> void:
 		var json_path = GlobalData.json_path
 		var data = {}
-		var jsonFile = File.new()
-		jsonFile.open(json_path, jsonFile.READ)
+		var jsonFile = FileAccess.open(json_path, FileAccess.READ)
 
 		if(jsonFile.get_error()):
 				print("Error while reading: ", json_path)
 
 		var text = jsonFile.get_as_text()
-		var text_json = JSON.parse(text)
-		data = text_json.result
+		var test_json_conv = JSON.new()
+		test_json_conv.parse(text)
+		var text_json = test_json_conv.get_data()
+		data = text_json
 		jsonFile.close()
 		current_json = data
 		
